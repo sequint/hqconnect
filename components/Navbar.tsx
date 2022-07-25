@@ -1,24 +1,30 @@
 import { Appbar } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 const Navbar = () => (
   <Appbar style={styles.bottom}>
-    <Appbar.Action
-      icon="archive"
-      onPress={() => console.log('Pressed archive')}
-    />
-    <Appbar.Action
-      icon="mail"
-      onPress={() => console.log('Pressed mail')}
-    />
-    <Appbar.Action
-      icon="label"
-      onPress={() => console.log('Pressed label')}
-    />
-    <Appbar.Action
-      icon="delete"
-      onPress={() => console.log('Pressed delete')}
-    />
+    <View style={styles.itemContainer}>
+      <Appbar.Action
+      style={styles.item}
+        icon="archive"
+        onPress={() => console.log('Pressed archive')}
+      />
+      <Appbar.Action
+      style={styles.item}
+        icon="mail"
+        onPress={() => console.log('Pressed mail')}
+      />
+      <Appbar.Action
+      style={styles.item}
+        icon="label"
+        onPress={() => console.log('Pressed label')}
+      />
+      <Appbar.Action
+      style={styles.item}
+        icon="delete"
+        onPress={() => console.log('Pressed delete')}
+      />
+    </View>
   </Appbar>
 );
 
@@ -30,5 +36,16 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    backgroundColor: 'white',
+  },
+  itemContainer: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  item: {
+    marginLeft: '20px',
+    marginRight: '20px',
   },
 });
