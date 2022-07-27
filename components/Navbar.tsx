@@ -6,23 +6,23 @@ const Navbar = () => (
     <View style={styles.itemContainer}>
       <Appbar.Action
       style={styles.item}
-        icon="archive"
+        icon="home-variant"
         onPress={() => console.log('Pressed archive')}
       />
       <Appbar.Action
       style={styles.item}
-        icon="mail"
+        icon="camera"
         onPress={() => console.log('Pressed mail')}
       />
       <Appbar.Action
       style={styles.item}
-        icon="label"
+        icon="account"
         onPress={() => console.log('Pressed label')}
       />
       <Appbar.Action
       style={styles.item}
-        icon="delete"
-        onPress={() => console.log('Pressed delete')}
+        icon="account-group"
+        onPress={() => console.log('Pressed label')}
       />
     </View>
   </Appbar>
