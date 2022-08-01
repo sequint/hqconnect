@@ -1,51 +1,42 @@
-import { Appbar } from 'react-native-paper';
-import { StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { BottomNavigation, Text } from 'react-native-paper';
 
-const Navbar = () => (
-  <Appbar style={styles.bottom}>
-    <View style={styles.itemContainer}>
-      <Appbar.Action
-      style={styles.item}
-        icon="home-variant"
-        onPress={() => console.log('Pressed archive')}
-      />
-      <Appbar.Action
-      style={styles.item}
-        icon="camera"
-        onPress={() => console.log('Pressed mail')}
-      />
-      <Appbar.Action
-      style={styles.item}
-        icon="account"
-        onPress={() => console.log('Pressed label')}
-      />
-      <Appbar.Action
-      style={styles.item}
-        icon="account-group"
-        onPress={() => console.log('Pressed label')}
-      />
-    </View>
-  </Appbar>
-);
+const MusicRoute = () => <Text>Music</Text>;
 
-export default Navbar;
+const AlbumsRoute = () => <Text>Albums</Text>;
+
+const RecentsRoute = () => <Text>Recents</Text>;
+
+const MyComponent = () => {
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'music', title: 'Favorites', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
+    { key: 'albums', title: 'Albums', focusedIcon: 'album' },
+    { key: 'recents', title: 'Recents', focusedIcon: 'history' },
+    { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    music: MusicRoute,
+    albums: AlbumsRoute,
+    recents: RecentsRoute,
+  });
+
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+      style={styles.background}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
-  bottom: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
+  background: {
     backgroundColor: 'white',
-  },
-  itemContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  item: {
-    marginLeft: '20px',
-    marginRight: '20px',
-  },
-});
+  }
+})
+
+export default MyComponent;
