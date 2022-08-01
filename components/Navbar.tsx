@@ -1,24 +1,23 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { BottomNavigation, Text } from 'react-native-paper';
-
-const MusicRoute = () => <Text>Music</Text>;
+import { Home } from '../pages';
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
-const MyComponent = () => {
+const Navbar = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    { key: 'music', title: 'Favorites', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
+    { key: 'home', title: 'Home', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
     { key: 'albums', title: 'Albums', focusedIcon: 'album' },
     { key: 'recents', title: 'Recents', focusedIcon: 'history' },
     { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
+    home: Home,
     albums: AlbumsRoute,
     recents: RecentsRoute,
   });
@@ -39,4 +38,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default MyComponent;
+export default Navbar;
