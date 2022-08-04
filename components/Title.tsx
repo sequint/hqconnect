@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';
+import { appTitle } from '../constants/titles';
 
 const Title = () => (
     <Appbar.Header style={styles.header}>
-       <Appbar.Content title="HQConnect" />
+       <Appbar.Content title={appTitle} />
     </Appbar.Header>
 );
 
